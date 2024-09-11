@@ -1,21 +1,27 @@
 import java.util.Scanner;
 
-public class CelsiusToFahrenheit  {
+public class GratuityCalculator {
     public static void main(String[] args) {
         // Create a Scanner object to read input from the console
         Scanner scanner = new Scanner(System.in);
 
-        // Prompt the user to enter a temperature in Celsius
-        System.out.print("Enter temperature in Celsius: ");
+        // Prompt the user to enter the subtotal
+        System.out.print("Enter the subtotal: ");
+        double subtotal = scanner.nextDouble();
 
-        // Read the input value as a double
-        double celsius = scanner.nextDouble();
+        // Prompt the user to enter the gratuity rate
+        System.out.print("Enter the gratuity rate (as a percentage): ");
+        double gratuityRate = scanner.nextDouble();
 
-        // Convert Celsius to Fahrenheit using the formula
-        double fahrenheit = (9.0 / 5) * celsius + 32;
+        // Calculate the gratuity
+        double gratuity = (gratuityRate / 100) * subtotal;
 
-        // Display the result
-        System.out.printf("Temperature in Fahrenheit: %.2f\n", fahrenheit);
+        // Calculate the total
+        double total = subtotal + gratuity;
+
+        // Display the results
+        System.out.printf("Gratuity: $%.2f\n", gratuity);
+        System.out.printf("Total: $%.2f\n", total);
 
         // Close the scanner
         scanner.close();
