@@ -1,0 +1,49 @@
+ import java.util.Scanner;
+
+public class ComputeAndInterpretBMI{
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for weight
+        System.out.print("Enter weight in pounds: ");
+        double weight = scanner.nextDouble();
+
+        // Prompt user for height in feet and inches
+        System.out.print("Enter feet: ");
+        int feet = scanner.nextInt();
+        System.out.print("Enter inches: ");
+        int inches = scanner.nextInt();
+
+        // Convert height to inches
+        int totalInches = (feet * 12) + inches;
+
+        // Convert height to meters (1 inch = 0.0254 meters)
+        double heightInMeters = totalInches * 0.0254;
+
+        // Calculate BMI (BMI = weight (kg) / (height (m) ^ 2))
+        // Convert weight to kilograms (1 pound = 0.453592 kg)
+        double weightInKg = weight * 0.453592;
+        double bmi = weightInKg / (heightInMeters * heightInMeters);
+
+        // Display the BMI
+        System.out.println("BMI is " + bmi);
+
+        // Interpret the BMI
+        interpretBMI(bmi);
+
+        scanner.close();
+    }
+
+    public static void interpretBMI(double bmi) {
+        if (bmi < 18.5) {
+            System.out.println("Underweight");
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            System.out.println("Normal");
+        } else if (bmi >= 25 && bmi < 29.9) {
+            System.out.println("Overweight");
+        } else {
+            System.out.println("Obesity");
+        }
+    }
+}
