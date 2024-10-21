@@ -1,0 +1,27 @@
+public class SumDigits {
+
+    public static int sumDigits(long n) {
+        // Ensure n is positive
+        n = Math.abs(n);
+        int sum = 0;
+
+        // Loop until all digits are extracted
+        while (n > 0) {
+            // Extract the last digit and add to sum
+            sum += n % 10;
+            // Remove the last digit
+            n /= 10;
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        // Test the sumDigits method with various cases
+        System.out.println("The sum of the digits in 234 is: " + sumDigits(234)); // Output: 9
+        System.out.println("The sum of the digits in 12345 is: " + sumDigits(12345)); // Output: 15
+        System.out.println("The sum of the digits in -678 is: " + sumDigits(-678)); // Output: 21
+        System.out.println("The sum of the digits in 0 is: " + sumDigits(0)); // Output: 0
+        System.out.println("The sum of the digits in 1001 is: " + sumDigits(1001)); // Output: 2
+    }
+}
