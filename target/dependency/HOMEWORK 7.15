@@ -1,0 +1,51 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class EliminateDuplicates {
+
+    // Method to eliminate duplicates from the array
+    public static int[] eliminateDuplicates(int[] list) {
+        // Create a HashSet to store unique elements
+        HashSet<Integer> uniqueSet = new HashSet<>();
+
+        // Add elements of the array to the HashSet (duplicates will be automatically removed)
+        for (int num : list) {
+            uniqueSet.add(num);
+        }
+
+        // Convert the HashSet back to an array
+        int[] result = new int[uniqueSet.size()];
+        int index = 0;
+        for (int num : uniqueSet) {
+            result[index++] = num;
+        }
+
+        // Return the new array with no duplicates
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Array to store the user's input
+        int[] numbers = new int[10];
+
+        // Prompt the user to enter ten integers
+        System.out.print("Enter ten numbers: ");
+        for (int i = 0; i < 10; i++) {
+            numbers[i] = input.nextInt();
+        }
+
+        // Call the eliminateDuplicates method
+        int[] distinctNumbers = eliminateDuplicates(numbers);
+
+        // Display the distinct numbers
+        System.out.print("The distinct numbers are: ");
+        for (int num : distinctNumbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        input.close();
+    }
+}
